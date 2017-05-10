@@ -10,25 +10,13 @@ $(document).ready(function() {
 
   firebase.initializeApp(config);
   var dbchat = firebase.database().ref().child('chatroom');
-  //var dbUser = firebase.database().ref();
+  var dbUser = firebase.database().ref().child('user');
 
   var $messageField = $('#inputMessage');
   const $inputname = $('#inputname');
   const $messagesList = $('#messagesList');
 
-  $messageField.keypress(function(e) {
-    if (e.keyCode == 13) {
-      const message = $messageField.val();
-      const inputname = $inputname.val();
-      const messagesList = $messagesList.val();
 
-      dbchat.push({
-        name: inputname,
-        text: message
-      });
-      $messageField.val('');
-    };
-  });
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -39,14 +27,37 @@ $(document).ready(function() {
         console.log("userName: " + profile.displayName);
         console.log("imageURL: " + profile.photoURL);
       });
+
+      name = user.displayName;
+
+      $messageField.keypress(function(e) {
+        if (e.keyCode == 13) {
+          const message = $messageField.val();
+          const inputname = name;
+          console.log("user " + name);
+
+          dbchat.push({
+            name: inputname,
+            text: message
+          });
+          $messageField.val('');
+        };
+      });
+
       dbchat.limitToLast(10).on('child_added', function(snapshot) {
         var data = snapshot.val();
         var username = data.name || "anonymous";
         var message = data.text;
+        var photoURL = user.photoURL || "#";
 
         var $messageElement = $("<li>");
+        var $photo = $("<img>");
+
         var $nameElement = $("<strong class='chat_username'></strong>")
-        $nameElement.text(username);
+        $photo.attr({
+          "src": photoURL
+        });
+        $nameElement.text(username).prepend($photo);
         $messageElement.text(message).prepend($nameElement);
 
         $messagesList.append($messageElement);

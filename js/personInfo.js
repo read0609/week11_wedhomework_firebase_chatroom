@@ -80,7 +80,7 @@ $(document).ready(function() {
           'description': $description
         })
         console.log("Update successful");
-        window.location.href = "./index.html";
+        window.location.href = "./chatRoom.html";
       });
     };
   });
