@@ -24,6 +24,7 @@ $(document).ready(function() {
 
     } else {
       console.log("not logged in");
+      window.location.href = "./index.html";
     }
   });
 
@@ -71,10 +72,6 @@ $(document).ready(function() {
         displayName: $userName,
         photoURL: photoURL
       });
-      promise.catch(function(e) {
-        console.log(e.message);
-        //console.log(user.)
-      });
       promise.then(function(e) {
         const dbUserid = dbUser.child(user.uid);
         dbUserid.update({
@@ -83,7 +80,7 @@ $(document).ready(function() {
           'description': $description
         })
         console.log("Update successful");
-        window.location.href = "./ChatRoom.html";
+        window.location.href = "./index.html";
       });
     };
   });
