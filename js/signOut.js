@@ -10,10 +10,16 @@ $(document).ready(function() {
   firebase.initializeApp(config);
   const $btn_signOut = $('#btn_signOut');
 
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+      window.location.href = "index.html";
+    }
+  });
+
   $btn_signOut.click(function() {
     console.log("log out!!");
     firebase.auth().signOut();
-    window.location.href = "index.html";
+
     console.log("log out!!");
   });
 });
