@@ -1,0 +1,41 @@
+
+
+.demo-card-wide.mdl-card {
+  width: 900px;
+  margin: auto;
+}
+.demo-card-wide > .mdl-card__title {
+  background-color: #33CCFF;
+
+}
+
+.mdl-card__supporting-text form{
+  margin: auto;
+}
+
+h5.SignUpText{
+  margin-top: 20px;
+  margin-left: 10px;
+  display: block;
+}
+
+.mdl-card__actions a{
+  color:#0066FF;
+  margin-left: 10px;
+}
+
+.mdl-card__actions button{
+  background-color:#CCDDFF;
+}
+
+.mdl-card__menu a{
+  color: #fff;
+}
+
+.chat_username {
+  margin-right: 10px;
+}
+
+ul li{
+  list-style-type:none;
+}

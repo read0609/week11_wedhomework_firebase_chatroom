@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ChatRoom</title>
+
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/material.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/chatRoom.js"></script>
+    <link rel="stylesheet" href="css/index.css" >
+  </head>
+  <body>
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">ChatRoom</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+
+        <form action="#">
+          <span>input name:</span>
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="inputname">
+            <label class="mdl-textfield__label" for="inputname"></label>
+          </div>
+        </form>
+
+        <ul id="messagesList"></ul>
+
+        <form action="#">
+          <span>input message:</span>
+          <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="inputMessage">
+            <label class="mdl-textfield__label" for="inputMessage"></label>
+          </div>
+        </form>
+      </div>
+
+      <div class="mdl-card__menu">
+        <a href="./personInfo.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          UpData PersonInfo
+        </a>
+        <a href="./userInfo.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Watch Other Online User Info
+        </a>
+        <a href="./signOut.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          sign Out
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
